@@ -55,3 +55,14 @@ class MovRotativo(models.Model):
 
     def __str__(self):
         return self.veiculo.placa
+
+
+class Menssalista(models.Model):
+    veiculo = models.ForeignKey('Veiculo', on_delete=models.CASCADE)
+    inicio = models.DateField()
+    valor_mes = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return str(self.veiculo) + ' - ' + str(self.inicio) 
+
+    
