@@ -100,7 +100,7 @@ def menssalista_novo(request):
 def menssalista_update(request, id):
     data = {}
     menssalista = Menssalista.objects.get(id=id)
-    form = MovRotativoForm(request.POST or None, instance=menssalista)
+    form = MenssalistaForm(request.POST or None, instance=menssalista)
     data['menssalista'] = menssalista
     data['form'] = form 
 
@@ -122,3 +122,17 @@ def mov_menssalista_novo(request):
     if form.is_valid():
         form.save()
     return redirect('core_lista_mov_menssalista')
+
+def mov_menssalista_update(request, id):
+    data = {}
+    mov_menssalistas = MovMenssalista.objects.get(id=id)
+    form = MovMenssalistaForm(request.POST or None, instance=mov_menssalistas)
+    data['mov_menssalistas'] = mov_menssalistas
+    data['form'] = form 
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+        return redirect('core_lista_mov_menssalista')
+    else:
+        return render(request, 'core/update_mov_menssalista.html', data)

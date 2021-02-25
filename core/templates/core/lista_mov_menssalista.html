@@ -3,7 +3,7 @@
 <ul>
 
 {% for mov in mov_menssalistas %}
-    <li>{{ mov.menssalista.veiculo.marca }} - {{ mov.total }}</li>
+    <li><a href="{% url 'core_mov_menssalista_update' mov.id %}"> {{ mov.menssalista.veiculo.marca }} - {{ mov.total }}  </a></li>
 {% endfor %}
 </ul>
 
