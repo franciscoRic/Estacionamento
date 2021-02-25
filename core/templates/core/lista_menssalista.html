@@ -1,0 +1,8 @@
+<h2>Lista Menssalistas</h2>
+
+<ul>
+
+{% for menssalista in menssalistas %}
+    <li>{{ menssalista.veiculo }} - {{ menssalista.valor_mes }}</li>
+{% endfor %}
+</ul>

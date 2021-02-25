@@ -1,0 +1,8 @@
+<h2>Lista Mov Menssalistas</h2>
+
+<ul>
+
+{% for mov in mov_menssalistas %}
+    <li>{{ mov.menssalista.veiculo.marca }} - {{ mov.total }}</li>
+{% endfor %}
+</ul>
