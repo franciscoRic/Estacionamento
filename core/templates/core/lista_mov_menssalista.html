@@ -6,3 +6,11 @@
     <li>{{ mov.menssalista.veiculo.marca }} - {{ mov.total }}</li>
 {% endfor %}
 </ul>
+
+<form action="{% url 'core_mov_menssalista_novo' %}" method="POST">
+    {% csrf_token %}
+    
+    {{form.as_p}}
+
+    <button type="submit">Cadastrar</button>
+</form>
