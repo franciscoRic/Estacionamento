@@ -65,4 +65,12 @@ class Menssalista(models.Model):
     def __str__(self):
         return str(self.veiculo) + ' - ' + str(self.inicio) 
 
+
+class MovMenssalista(models.Model):
+    menssalista = models.ForeignKey('Menssalista', on_delete=models.CASCADE)
+    data_pagamento = models.DateField()
+    total = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return str(self.menssalista) 
     
