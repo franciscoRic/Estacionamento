@@ -39,7 +39,7 @@ def pessoa_delete(request, id):
         pessoa.delete()
         return redirect('core_lista_pessoas')
     else:
-        return render(request, 'core/delete_confirm.html', {'pessoa': pessoa})
+        return render(request, 'core/delete_confirm.html', {'obj': pessoa})
 
 def lista_veiculos(request):
     veiculos = Veiculo.objects.all()
@@ -66,6 +66,14 @@ def veiculo_update(request, id):
         return redirect('core_lista_veiculos')
     else:
         return render(request, 'core/update_veiculos.html', data)
+
+def veiculo_delete(request, id):
+    veiculo = Veiculo.objects.get(id = id)
+    if request.method == 'POST':
+        veiculo.delete()
+        return redirect('core_lista_veiculos')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': veiculo})
 
 def lista_mov_rotativo(request):
     movrotativo = MovRotativo.objects.all()
